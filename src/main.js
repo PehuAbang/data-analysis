@@ -4,7 +4,7 @@ import './assets/bootstrap/dist/css/bootstrap.min.css'
 // actually mount to DOM
 //app.$mount('#app')
 
-import router from './components/router'
+import router from './components/router/index.js'
 
 
 var  app = new Vue({
@@ -13,5 +13,3 @@ var  app = new Vue({
 })
 
 app.$mount('#app')
-
-export default app

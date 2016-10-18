@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import Page1 from './Page1'
-import Page2 from './Page2'
-import Page3 from './Page3'
-import router from '../router'
+import Page1 from './Page1.vue'
+import Page2 from './Page2.vue'
+import Page3 from './Page3.vue'
+import router from '../router/index.js'
 
 var data = {
   enableCtrl : location.href.indexOf('pdf') == -1 

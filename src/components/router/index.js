@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
-import Report from '../report/ReportMain'
-import Home from '../Home'
+import Report from '../report/ReportMain.vue'
+import Home from '../Home.vue'
 
 export default new Router({
   mode: 'history',
