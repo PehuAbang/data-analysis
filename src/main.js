@@ -9,7 +9,7 @@ import router from './components/router'
 
 var  app = new Vue({
   router,
-  ...App 
+  render (h) { return h(App) } 
 })
 
 app.$mount('#app')

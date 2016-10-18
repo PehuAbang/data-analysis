@@ -1,6 +1,6 @@
-# vue-webpack
+# da-report
 
-> A Vue.js project
+> for data anaylsis PDF report
 
 ## Build Setup
 

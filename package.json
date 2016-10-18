@@ -1,7 +1,7 @@
 {
-  "name": "vue-webpack",
+  "name": "da-report",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "for data anaylsis PDF report",
   "author": "pehu.abang <pehu.abang@gmail.com>",
   "private": true,
   "scripts": {
@@ -9,10 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "bootstrap": "^3.3.5",
-    "echarts": "^3.2.3",
-    "express": "^4.14.0",
-    "vue": "^2.0.3",
+    "vue": "^2.0.1",
     "vue-router": "^2.0.1"
   },
   "devDependencies": {
