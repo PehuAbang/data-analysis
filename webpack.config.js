@@ -2,11 +2,15 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: { 
+    // build : './src/mainPdf.js'
+    build : './src/main.js',
+    pdfBuild : './src/mainPdf.js'
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -18,10 +22,12 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
+    test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/
-      },
+        query: {
+          presets: ['es2015']
+        }
+    },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file',
@@ -42,6 +48,15 @@ module.exports = {
     noInfo: true
   },
   devtool: '#eval-source-map'
+  ,
+  plugins: [
+      // new webpack.ProvidePlugin({
+      //     $: 'jquery',
+      //     jQuery: 'jquery',
+      //     'window.jQuery': 'jquery',
+      //     'root.jQuery': 'jquery'
+      // }),
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {

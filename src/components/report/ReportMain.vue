@@ -1,9 +1,6 @@
 <template>
-  <div >
-    <div v-if="enableCtrl">
-      <button v-on:click="back">返回</button>
-      <button v-on:click="download">匯出 PDF</button>
-    </div>
+  <div>
+    <page-control></page-control>
     <page1></page1>
     <page2></page2>
     <page3></page3>
@@ -14,16 +11,10 @@
 import Page1 from './Page1.vue'
 import Page2 from './Page2.vue'
 import Page3 from './Page3.vue'
+import PageControl from './PageControl.vue'
 import router from '../router/index.js'
 
-var data = {
-  enableCtrl : location.href.indexOf('pdf') == -1 
-}
-
 export default {
-  data : function(){
-    return data
-  },
 	methods : {
     back : function(){
       router.back()
@@ -33,6 +24,7 @@ export default {
     }
   },
   components: {
+    PageControl,
     Page1,
     Page2,
     Page3

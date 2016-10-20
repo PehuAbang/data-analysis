@@ -1,13 +1,13 @@
 <template>
   <div >
     page {{number}}
-    <button v-on:click="reload">reload</button>
+    
     <div id="main" style="width: 600px;height:400px;"></div>
   </div>
 </template>
 
 <script>
-import echarts from '../../assets/echarts.min.js'
+import echarts from 'echarts'
 
 
   	console.log('111');
@@ -27,7 +27,7 @@ export default {
   	}
   },
 	mounted:function(){
-  	console.log('222');
+  	
 // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
 
