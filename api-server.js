@@ -6,9 +6,12 @@ var path = require('path');
 
 app.get('/getpdf', function (req, res) {
 
+	var fullUrl = req.protocol + '://' + req.get('host');
+	console.log(fullUrl);
 	console.log('param:',req.query);
+	
 	var file = 	__dirname + '/report.pdf';
-	var command = 'wkhtmltopdf http://localhost:8080/pdf.html?city='+req.query.city + ' '+ file;
+	var command = 'wkhtmltopdf '+fullUrl+'/pdf.html?city='+req.query.city + ' '+ file;
 	
 	var testscript = exec( command , function(err, stdout, stderr){
 		console.log('err ' , err );
