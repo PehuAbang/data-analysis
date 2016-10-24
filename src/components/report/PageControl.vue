@@ -18,7 +18,8 @@ export default {
       router.back()
     },
     download : function(){
-      location.href = 'http://localhost:8080/getpdf?city=' + ReportParam.getCity()
+
+      location.href = location.href.split('8080')[0]+':8080/getpdf?city=' + ReportParam.getCity()
     }
   },
   components: {
