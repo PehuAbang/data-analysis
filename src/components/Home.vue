@@ -1,10 +1,10 @@
 <template>
 <div >
   <h1>白皮书建立</h1>
-  XX市
-  <input type="radio" value="a1" v-model="area"/>
-  OO市
-  <input type="radio" value="a2" v-model="area"/>
+  南通市
+  <input type="radio" value="南通市" v-model="city"/>
+  南京市
+  <input type="radio" value="南京市" v-model="city"/>
   <br>
   <button v-on:click="review">检视</button>
   
@@ -13,18 +13,20 @@
 
 <script>
 import router from './router/index.js'
+import ReportParam from './report/ReportParam.js'
 
 export default {
   data : function(){
     return {
-      area : 'a1'
+      city : '南通市'
     }
   },
 
   methods : {
     review : function(){
-      console.log('home review',this.area);
-      router.push({path : '/report/'+this.area})
+      
+      ReportParam.setCity(this.city);
+      router.push({path : '/report/'+this.city})
     }
   }
 }

@@ -14,13 +14,15 @@ import Page3 from './Page3.vue'
 import PageControl from './PageControl.vue'
 import router from '../router/index.js'
 
+
 export default {
 	methods : {
     back : function(){
       router.back()
     },
     download : function(){
-      location.href = 'http://localhost:8080/pdf/12'
+
+     // location.href = 'http://localhost:8080/pdf/12'
     }
   },
   components: {
