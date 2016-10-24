@@ -4,6 +4,19 @@ var fs = require("fs");
 var exec = require('child_process').exec;
 var path = require('path');
 
+
+
+app.get('/getfile', function (req, res) {
+
+	var file = 	__dirname + '/report.pdf';
+
+	res.setHeader('Content-disposition', 'attachment; filename=report.pdf');
+	res.setHeader('Content-type', 'application/pdf');
+	fs.readFile( file, '', function (err, data) {
+		res.end( data );
+	});
+})
+
 app.get('/getpdf', function (req, res) {
 
 	var fullUrl = req.protocol + '://' + req.get('host');
@@ -14,7 +27,7 @@ app.get('/getpdf', function (req, res) {
 	var url = encodeURI('http://localhost:8080/pdf.html?city='+req.query.city);
 	var command = 'wkhtmltopdf ' + url + ' '+ file;
 	console.log(command);
-	
+
 	var testscript = exec( command , function(err, stdout, stderr){
 		console.log('err ' , err );
 		console.log('stdout' , stdout);
