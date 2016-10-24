@@ -14,7 +14,7 @@ app.get('/getpdf', function (req, res) {
 	var url = encodeURI('http://localhost:8080/pdf.html?city='+req.query.city);
 	var command = 'wkhtmltopdf ' + url + ' '+ file;
 	console.log(command);
-	return ;
+	
 	var testscript = exec( command , function(err, stdout, stderr){
 		console.log('err ' , err );
 		console.log('stdout' , stdout);
