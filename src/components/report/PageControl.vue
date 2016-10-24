@@ -10,6 +10,7 @@
 <script>
 import router from '../router/index.js'
 
+import ReportParam from './ReportParam.js'
 
 export default {
 	methods : {
@@ -17,7 +18,7 @@ export default {
       router.back()
     },
     download : function(){
-      location.href = 'http://localhost:8080/pdf/12'
+      location.href = 'http://localhost:8080/getpdf?city=' + ReportParam.getCity()
     }
   },
   components: {

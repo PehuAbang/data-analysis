@@ -2,32 +2,29 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 var exec = require('child_process').exec;
+var path = require('path');
 
+app.get('/getpdf', function (req, res) {
 
-
-app.get('/listUsers', function (req, res) {
-
+	console.log('param:',req.query);
+	var file = 	__dirname + '/report.pdf';
+	var command = 'wkhtmltopdf http://localhost:8080/pdf.html?city='+req.query.city + ' '+ file;
 	
-	var testscript = exec('ls -lh /usr');
+	var testscript = exec( command , function(err, stdout, stderr){
+		console.log('err ' , err );
+		console.log('stdout' , stdout);
+		console.log('stderr' , stderr);
 
-	testscript.stdout.on('data', function(data){
-	    console.log(data); 
-	    console.log('testscript.stdout');
-
-	   fs.readFile( __dirname + "/charts.pdf", '', function (err, data) {
-	      console.log( data );
-	      res.end( data );
-	   });
-	});
-
-	testscript.stderr.on('data', function(data){
-		console.log(data);
-		console.log('testscript.stderr'); 
-	});
+		res.setHeader('Content-disposition', 'attachment; filename=report.pdf');
+		res.setHeader('Content-type', 'application/pdf');
+		fs.readFile( file, '', function (err, data) {
+			res.end( data );
+		});
+	});	
 
 })
 
-var server = app.use(express.static('dist')).listen(8080, function () {
+var server = app.use(express.static('./')).listen(8080, function () {
    var host = server.address().address
    var port = server.address().port
 
