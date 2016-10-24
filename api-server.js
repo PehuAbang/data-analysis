@@ -11,8 +11,10 @@ app.get('/getpdf', function (req, res) {
 	console.log('param:',req.query);
 	
 	var file = 	__dirname + '/report.pdf';
-	var command = 'wkhtmltopdf http://localhost:8080/pdf.html?city='+req.query.city + ' '+ file;
-	
+	var url = encodeURI('http://localhost:8080/pdf.html?city='+req.query.city);
+	var command = 'wkhtmltopdf ' + url + ' '+ file;
+	console.log(command);
+	return ;
 	var testscript = exec( command , function(err, stdout, stderr){
 		console.log('err ' , err );
 		console.log('stdout' , stdout);
